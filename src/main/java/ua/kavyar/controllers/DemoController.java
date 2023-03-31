@@ -15,7 +15,6 @@ public class DemoController {
         return "admin";
     }
 
-
     @GetMapping("/login")
     public String login() {
         return "login";

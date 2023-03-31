@@ -1,6 +1,7 @@
 package ua.kavyar.config;
 
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,10 +17,17 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
-
     private String[] adminUrls;
     private String[] permitAllUrls;
     private String loginUrl;
+
+    @Value("${admin.username}")
+    private String username;
+
+    @Value("${admin.password}")
+    private String password;
+
+    @Value("${admin.role}")
     private String adminRole;
 
     @PostConstruct
@@ -27,7 +35,6 @@ public class WebSecurityConfig {
         adminUrls = new String[]{"/admin"};
         permitAllUrls = new String[]{"/"};
         loginUrl = "/login";
-        adminRole = "ADMIN";
     }
 
     @Bean
@@ -47,9 +54,9 @@ public class WebSecurityConfig {
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails admin =
-                User.withUsername("test")
-                        .password(encoder().encode("test"))
-                        .roles("ADMIN")
+                User.withUsername(username)
+                        .password(encoder().encode(password))
+                        .roles(adminRole)
                         .build();
         return new InMemoryUserDetailsManager(admin);
     }
