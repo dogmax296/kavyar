@@ -31,9 +31,9 @@ public class WebSecurityConfig {
     private String adminRole;
 
     @PostConstruct
-    public void setUpFields(){
+    public void setUpFields() {
         adminUrls = new String[]{"/admin"};
-        permitAllUrls = new String[]{"/"};
+        permitAllUrls = new String[]{"/*"};
         loginUrl = "/login";
     }
 
