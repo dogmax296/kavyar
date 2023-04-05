@@ -55,18 +55,18 @@ public class CoffeeShopDtoMapper implements
         coffeeShopResponseDto.setPhone(coffeeShop.getPhone());
         coffeeShopResponseDto.setOpen(coffeeShop.getOpen());
         coffeeShopResponseDto.setClose(coffeeShop.getClose());
-        coffeeShopResponseDto.setInstagram(coffeeShop.getInstagram());
-        coffeeShopResponseDto.setFacebook(coffeeShop.getFacebook());
-        coffeeShopResponseDto.setUrl(coffeeShop.getUrl());
-        coffeeShopResponseDto.setLogo(photoDtoMapper.mapToDto(coffeeShop.getLogo()));
-        coffeeShopResponseDto.setLocation(coffeeShop.getLocation());
-        coffeeShopResponseDto.setPhotos(coffeeShop.getPhotos().stream()
-                .map(photoDtoMapper::mapToDto)
-                .toArray(PhotoResponseDto[]::new));
+//        coffeeShopResponseDto.setInstagram(coffeeShop.getInstagram());
+//        coffeeShopResponseDto.setFacebook(coffeeShop.getFacebook());
+//        coffeeShopResponseDto.setUrl(coffeeShop.getUrl());
+//        coffeeShopResponseDto.setLogo(photoDtoMapper.mapToDto(coffeeShop.getLogo()));
+//        coffeeShopResponseDto.setLocation(coffeeShop.getLocation());
+//        coffeeShopResponseDto.setPhotos(coffeeShop.getPhotos().stream()
+//                .map(photoDtoMapper::mapToDto)
+//                .toArray(PhotoResponseDto[]::new));
         coffeeShopResponseDto.setFeatures(coffeeShop.getFeatures().stream()
                 .map(featureDtoMapper::mapToDto)
                 .toArray(FeatureResponseDto[]::new));
-        coffeeShopResponseDto.setLocation(coffeeShop.getLocation());
+//        coffeeShopResponseDto.setLocation(coffeeShop.getLocation());
         return coffeeShopResponseDto;
     }
 
@@ -79,17 +79,17 @@ public class CoffeeShopDtoMapper implements
         coffeeShop.setPhone(coffeeShopRequestDto.getPhone());
         coffeeShop.setOpen(coffeeShopRequestDto.getOpen());
         coffeeShop.setClose(coffeeShopRequestDto.getClose());
-        coffeeShop.setInstagram(coffeeShopRequestDto.getInstagram());
-        coffeeShop.setFacebook(coffeeShopRequestDto.getFacebook());
-        coffeeShop.setUrl(coffeeShopRequestDto.getUrl());
-        coffeeShop.setLogo(photoService.getById(coffeeShopRequestDto.getLogoId()));
-        coffeeShop.setPhotos(Arrays.stream(coffeeShopRequestDto.getPhotos())
-                .map(photoService::getById)
-                .collect(Collectors.toList()));
+//        coffeeShop.setInstagram(coffeeShopRequestDto.getInstagram());
+//        coffeeShop.setFacebook(coffeeShopRequestDto.getFacebook());
+//        coffeeShop.setUrl(coffeeShopRequestDto.getUrl());
+//        coffeeShop.setLogo(photoService.getById(coffeeShopRequestDto.getLogoId()));
+//        coffeeShop.setPhotos(Arrays.stream(coffeeShopRequestDto.getPhotos())
+//                .map(photoService::getById)
+//                .collect(Collectors.toList()));
         coffeeShop.setFeatures(Arrays.stream(coffeeShopRequestDto.getFeatures())
                 .map(featureService::getById)
                 .collect(Collectors.toList()));
-        coffeeShop.setLocation(coffeeShopRequestDto.getLocation());
+//        coffeeShop.setLocation(coffeeShopRequestDto.getLocation());
         return coffeeShop;
     }
 }

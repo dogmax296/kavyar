@@ -10,11 +10,11 @@ public class CoffeeShopRequestDto {
     private String phone;
     private String open;
     private String close;
-    private String instagram;
-    private String facebook;
-    private String url;
-    private Long logoId;
-    private Long[] photos;
+//    private String instagram;
+//    private String facebook;
+//    private String url;
+//    private Long logoId;
+//    private Long[] photos;
     private Long[] features;
-    private String location;
+//    private String location;
 }

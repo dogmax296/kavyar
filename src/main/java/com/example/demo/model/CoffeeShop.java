@@ -36,26 +36,26 @@ public class CoffeeShop {
     private String phone;
     private String open;
     private String close;
-    private String instagram;
-    private String facebook;
-    private String url;
-    @OneToOne
-    private Photo logo;
-    @OneToMany
-    @JoinTable(name = "coffee_shops_photos",
-            joinColumns = @JoinColumn(name = "coffee_shop_id"),
-            inverseJoinColumns = @JoinColumn(name = "photo_id", unique = true))
-    private List<Photo> photos;
+//    private String instagram;
+//    private String facebook;
+//    private String url;
+//    @OneToOne
+//    private Photo logo;
+//    @OneToMany
+//    @JoinTable(name = "coffee_shops_photos",
+//            joinColumns = @JoinColumn(name = "coffee_shop_id"),
+//            inverseJoinColumns = @JoinColumn(name = "photo_id", unique = true))
+//    private List<Photo> photos;
     @ManyToMany
     @JoinTable(name = "coffee_shops_features",
             joinColumns = @JoinColumn(name = "coffee_shop_id"),
             inverseJoinColumns = @JoinColumn(name = "feature_id"))
     private List<Feature> features;
-    private String location;
+//    private String location;
 
     public CoffeeShop() {
-        photos = new ArrayList<>();
-        features = new ArrayList<>();
+//        photos = new ArrayList<>();
+//        features = new ArrayList<>();
         isDisable = false;
     }
 }
